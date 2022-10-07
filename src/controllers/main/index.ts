@@ -1,10 +1,10 @@
-import { NextFunction, Request, Response } from "express";
-import { successfullRequestData } from "../../utils/successfulRequestData";
+import { NextFunction, Request, Response } from 'express';
+import { successfullRequestData } from '../../utils';
 
 class MainController {
   static async handle(req: Request, res: Response, next: NextFunction) {
     try {
-      return res.status(200).json(successfullRequestData("pong"));
+      return res.status(200).json(successfullRequestData('pong'));
     } catch (err) {
       next(err);
     }

@@ -1,4 +1,6 @@
+require('newrelic');
 require('dotenv').config();
+
 import { apiKeyMiddleware, errorMiddleware } from './middlewares';
 import express, { Router } from 'express';
 import cors from 'cors';
