@@ -9,7 +9,7 @@ class FindPalleteByIdController {
 
       const pallete = await FindPalleteById.execute(id);
 
-      return res.status(201).json(successfullRequestData(pallete));
+      return res.status(200).json(successfullRequestData(pallete));
     } catch (err) {
       next(err);
     }

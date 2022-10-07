@@ -9,7 +9,7 @@ class ListAllPalletesController {
 
       const palletes = await ListAllPalletes.execute(page);
 
-      return res.status(201).json(successfullRequestData(palletes));
+      return res.status(200).json(successfullRequestData(palletes));
     } catch (err) {
       next(err);
     }
