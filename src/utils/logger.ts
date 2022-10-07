@@ -8,7 +8,7 @@ interface Log {
 }
 
 // Define log format
-const logFormat = winston.format.printf(({ timestamp, level, message }: Log) => `[PickPallet]:: ${timestamp} ${level}: ${message}`);
+const logFormat = winston.format.printf(({ timestamp, level, message }: Log) => `[PickPallete]:: ${timestamp} ${level}: ${message}`);
 
 /*
  * Log Level

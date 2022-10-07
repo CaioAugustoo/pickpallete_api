@@ -1,11 +1,12 @@
 require('dotenv').config();
 import { apiKeyMiddleware, errorMiddleware } from './middlewares';
-
 import express, { Router } from 'express';
 import cors from 'cors';
-import { MainRouter } from './routes';
-import { PalletesRouter } from './routes/palletes';
+import { MainRouter, MetricsRoute, PalletesRouter } from './routes';
 import { logger } from './utils';
+import * as prometheus from './lib/prometheus';
+import { initializeSentry, apiLimiter } from './config';
+import * as Sentry from '@sentry/node';
 
 class App {
   public app: express.Application;
@@ -19,14 +20,14 @@ class App {
 
     this.initializeMiddlewares();
     this.initRoutes();
-    this.initializeErrorHandling();
+    this.initializeConfigs();
   }
 
   public listen() {
     const { app, port } = this;
 
     app.listen(port, () => {
-      logger.info(`=========== PICK-PALLET ===========`);
+      logger.info(`========== PICK PALLETE ===========`);
       logger.info(`🚀 App listening on the port ${port}`);
       logger.info(`===================================`);
     });
@@ -37,26 +38,31 @@ class App {
 
     app.use(new MainRouter(router).router);
     app.use(new PalletesRouter(router).router);
+    app.use(new MetricsRoute(router).router);
   }
 
   private initializeMiddlewares() {
     const { app } = this;
 
     app.use(express.json());
-    app.use(cors());
+    app.use(cors({ origin: process.env.CORS_ORIGIN }));
     app.use(express.urlencoded({ extended: true }));
+    app.use(apiLimiter);
+    app.use(errorMiddleware);
+    app.use(Sentry.Handlers.requestHandler());
+    app.use(Sentry.Handlers.tracingHandler());
 
     process.env.NODE_ENV === 'production' && app.use(apiKeyMiddleware);
 
     logger.info('Middlewares initialized');
   }
 
-  private initializeErrorHandling() {
-    const { app } = this;
+  private initializeConfigs() {
+    initializeSentry(this.app);
 
-    app.use(errorMiddleware);
+    prometheus.client.collectDefaultMetrics({ register: prometheus.register });
 
-    logger.info('Error handling initialized');
+    logger.info('Config initialized');
   }
 }
 

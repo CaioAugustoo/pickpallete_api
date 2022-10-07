@@ -1,3 +1,4 @@
-import { MESSAGES } from "./messages";
+import { MESSAGES } from './messages';
+import { Counters, counters } from './counters';
 
-export { MESSAGES };
+export { MESSAGES, Counters, counters };

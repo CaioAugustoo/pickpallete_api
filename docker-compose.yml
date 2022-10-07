@@ -13,7 +13,7 @@ services:
     ports:
       - '3306:3306'
     networks:
-      - pickpallet
+      - pickpallete
 
   prometheus:
     image: prom/prometheus
@@ -27,7 +27,7 @@ services:
     ports:
       - '9090:9090'
     networks:
-      - pickpallet
+      - pickpallete
 
   grafana:
     image: grafana/grafana:7.1.5
@@ -53,7 +53,7 @@ volumes:
   grafana_data: {}
 
 networks:
-  pickpallet:
+  pickpallete:
     driver: bridge
   monitoring:
     driver: bridge
