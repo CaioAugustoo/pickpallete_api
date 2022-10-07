@@ -1,0 +1,59 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: db
+    env_file:
+      - ./.env
+    environment:
+      MYSQL_ROOT_USER: $DB_USER
+      MYSQL_ROOT_PASSWORD: $DB_PASS
+      MYSQL_DATABASE: $DB_NAME
+    ports:
+      - '3306:3306'
+    networks:
+      - pickpallet
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    restart: always
+    volumes:
+      - ./prometheus/:/etc/prometheus/
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - '9090:9090'
+    networks:
+      - pickpallet
+
+  grafana:
+    image: grafana/grafana:7.1.5
+    container_name: grafana
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./Main Server/grafana/provisioning:/etc/grafana/provisioning
+    environment:
+      - GF_AUTH_DISABLE_LOGIN_FORM=false
+      - GF_AUTH_ANONYMOUS_ENABLED=false
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+    ports:
+      - 3000:3000
+    expose:
+      - 3000
+    networks:
+      - monitoring
+
+volumes:
+  data:
+    driver: local
+  prometheus_data: {}
+  grafana_data: {}
+
+networks:
+  pickpallet:
+    driver: bridge
+  monitoring:
+    driver: bridge
