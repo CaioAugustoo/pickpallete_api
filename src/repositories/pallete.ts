@@ -12,7 +12,7 @@ class PalleteRepository {
   }
 
   static async listAll(page?: number) {
-    return await prisma.pallete.findMany(getPaginationPage(page));
+    return await prisma.pallete.findMany({ ...getPaginationPage(page), orderBy: { created_at: 'desc' } });
   }
 }
 

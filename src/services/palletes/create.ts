@@ -1,5 +1,4 @@
 import { CreatePalleteDto } from '../../dtos';
-import { prisma } from '../../lib/prisma';
 import { PalleteRepository } from '../../repositories';
 import { HttpException } from '../../exceptions';
 import { validateCreatePallete } from '../../validations';
