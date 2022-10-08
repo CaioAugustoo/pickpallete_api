@@ -19,7 +19,7 @@ Continuação do [antigo projeto](https://github.com/CaioAugustoo/pickpallet_api
 
 ...
 
-[Confira todas](https://github.com/CaioAugustoo/pickpallet_api_v2/blob/master/package.json#L14)
+[Confira todas](https://github.com/CaioAugustoo/pickpallete_api/blob/master/package.json#L14)
 
 ---
 
@@ -36,7 +36,7 @@ No mais, você pode conferir a documentação de cada endpoint abaixo.
 
 ----
 
-#### Retorna todas as paletas. Por padrão, são exibidas apenas [20 paletas por cada página](https://github.com/CaioAugustoo/pickpallet_api_v2/blob/master/src/utils/pagination/index.ts#L1).
+#### Retorna todas as paletas. Por padrão, são exibidas apenas [20 paletas por cada página](https://github.com/CaioAugustoo/pickpallete_api/blob/master/src/utils/pagination/index.ts#L1).
 
 ```
   GET /palletes?page=5
@@ -138,7 +138,7 @@ Por se tratar de uma requisição de método **POST** é necessário o envio do 
 | `color3`      | `string` | **Obrigatório**. Cor 3 da paleta | -
 | `color4`      | `string` | **Obrigatório**. Cor 4 da paleta | -
 
-#### Observação: cada campo é validado seguindo um formato de cor hexadecimal. Caso não seja informado no formato de hexadecimal um erro será exibido. [Confira o método de validação](https://github.com/CaioAugustoo/pickpallet_api_v2/blob/master/src/validations/schemas/palletes.ts).
+#### Observação: cada campo é validado seguindo um formato de cor hexadecimal. Caso não seja informado no formato de hexadecimal um erro será exibido. [Confira o método de validação](https://github.com/CaioAugustoo/pickpallete_api/blob/master/src/validations/schemas/palletes.ts).
 
 Exemplo de JSON **CORRETO**:
 
@@ -213,7 +213,7 @@ NEW_RELIC_APP_NAME
 NEW_RELIC_LICENSE_KEY
 ```
 
-[Confira um arquivo de exemplo](https://github.com/CaioAugustoo/pickpallet_api_v2/blob/master/.env.example)
+[Confira um arquivo de exemplo](https://github.com/CaioAugustoo/pickpallete_api/blob/master/.env.example)
 
 ----
 
@@ -222,13 +222,13 @@ NEW_RELIC_LICENSE_KEY
 Clone o projeto
 
 ```bash
-  git clone https://github.com/CaioAugustoo/pickpallet_api_v2
+  git clone https://github.com/CaioAugustoo/pickpallete_api
 ```
 
 Entre no diretório do projeto
 
 ```bash
-  cd pickpallet_api_v2
+  cd pickpallete_api
 ```
 
 Instale as dependências
