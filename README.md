@@ -142,7 +142,7 @@ Por se tratar de uma requisição de método **POST** é necessário o envio do 
 
 Exemplo de JSON **CORRETO**:
 
-```
+```js
 {
 	"color1":"#2192FF",
 	"color2":"#38E54D",
@@ -153,9 +153,9 @@ Exemplo de JSON **CORRETO**:
 
 Exemplo de JSON **INCORRETO**:
 
-```
+```js
 {
-	"color1":"white", <= Não é uma cor hexadecimal
+	"color1":"white", // <= Não é uma cor hexadecimal
 	"color2":"#38E54D",
 	"color3":"#9CFF2E",
 	"color4":"#FDFF00"
@@ -164,7 +164,7 @@ Exemplo de JSON **INCORRETO**:
 
 Exemplo de requisição caso o JSON esteja **INCORRETO**:
 
-```
+```js
 {
 	"ok": false,
 	"error": true,
@@ -175,7 +175,7 @@ Exemplo de requisição caso o JSON esteja **INCORRETO**:
 
 Exemplo de requisição bem sucedida (caso não possua nenhum erro):
 
-```
+```js
 {
 	"ok": true,
 	"error": null,
