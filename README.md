@@ -49,45 +49,45 @@ No mais, você pode conferir a documentação de cada endpoint abaixo.
 Caso não seja passado tal parâmetro, então é usado do número **1** como padrão.
 
 Exemplo de retorno: 
-```js
+```javascript
 {
 	"ok": true,
 	"error": null,
 	"message": null,
 	"data": [
-		{
-			"id": "a903be72-081b-4bae-baab-99af851023dc",
-			"created_at": "2022-10-07T23:27:47.263Z",
-			"color1": "#2192FF",
-			"color2": "#38E54D",
-			"color3": "#9CFF2E",
-			"color4": "#FDFF00"
-		},
-		{
-			"id": "aa65f940-0eac-4c03-ae5e-83b90367ba5c",
-			"created_at": "2022-10-07T23:27:47.136Z",
-			"color1": "#2192FF",
-			"color2": "#38E54D",
-			"color3": "#9CFF2E",
-			"color4": "#FDFF00"
-		},
-		{
-			"id": "d857ebdb-f038-4bb6-83ca-a1dc5965987f",
-			"created_at": "2022-10-07T23:27:46.906Z",
-			"color1": "#2192FF",
-			"color2": "#38E54D",
-			"color3": "#9CFF2E",
-			"color4": "#FDFF00"
-		},
-		{
-			"id": "e8f40ece-96f3-4d4f-a04f-a2e2cd560872",
-			"created_at": "2022-10-07T23:27:46.765Z",
-			"color1": "#2192FF",
-			"color2": "#38E54D",
-			"color3": "#9CFF2E",
-			"color4": "#FDFF00"
-		}
-	]
+	{
+	  "id": "a903be72-081b-4bae-baab-99af851023dc",
+	  "created_at": "2022-10-07T23:27:47.263Z",
+	  "color1": "#2192FF",
+	  "color2": "#38E54D",
+	  "color3": "#9CFF2E",
+	  "color4": "#FDFF00"
+	},
+	{
+	  "id": "aa65f940-0eac-4c03-ae5e-83b90367ba5c",
+	  "created_at": "2022-10-07T23:27:47.136Z",
+	  "color1": "#2192FF",
+	  "color2": "#38E54D",
+	  "color3": "#9CFF2E",
+	  "color4": "#FDFF00"
+	},
+	{
+	  "id": "d857ebdb-f038-4bb6-83ca-a1dc5965987f",
+	  "created_at": "2022-10-07T23:27:46.906Z",
+	  "color1": "#2192FF",
+	  "color2": "#38E54D",
+	  "color3": "#9CFF2E",
+	  "color4": "#FDFF00"
+	},
+	{
+	  "id": "e8f40ece-96f3-4d4f-a04f-a2e2cd560872",
+	  "created_at": "2022-10-07T23:27:46.765Z",
+	  "color1": "#2192FF",
+	  "color2": "#38E54D",
+	  "color3": "#9CFF2E",
+	  "color4": "#FDFF00"
+	}
+    ]
 }
 ```
 
@@ -105,7 +105,7 @@ Exemplo de retorno:
 | `id`      | `string` | **Obrigatório**. ID da paleta a ser buscada | -
 
 Exemplo de retorno:
-```js
+```javascript
 {
 	"ok": true,
 	"error": null,
@@ -142,52 +142,52 @@ Por se tratar de uma requisição de método **POST** é necessário o envio do 
 
 Exemplo de JSON **CORRETO**:
 
-```js
+```javascript
 {
-	"color1":"#2192FF",
-	"color2":"#38E54D",
-	"color3":"#9CFF2E",
-	"color4":"#FDFF00"
+   "color1":"#2192FF",
+   "color2":"#38E54D",
+   "color3":"#9CFF2E",
+   "color4":"#FDFF00"
 }
 ```
 
 Exemplo de JSON **INCORRETO**:
 
-```js
+```javascript
 {
-	"color1":"white", // <= Não é uma cor hexadecimal
-	"color2":"#38E54D",
-	"color3":"#9CFF2E",
-	"color4":"#FDFF00"
+   "color1":"white", // <= Não é uma cor hexadecimal
+   "color2":"#38E54D",
+   "color3":"#9CFF2E",
+   "color4":"#FDFF00"
 }
 ```
 
 Exemplo de requisição caso o JSON esteja **INCORRETO**:
 
-```js
+```javascript
 {
-	"ok": false,
-	"error": true,
-	"message": "\"color1\" with value \"white\" fails to match the required pattern: /^#(?:[0-9a-fA-F]{3}){1,2}$/",
-	"data": null
+   "ok": false,
+   "error": true,
+   "message": "\"color1\" with value \"white\" fails to match the required pattern: /^#(?:[0-9a-fA-F]{3}){1,2}$/",
+   "data": null
 }
 ```
 
 Exemplo de requisição bem sucedida (caso não possua nenhum erro):
 
-```js
+```javascript
 {
-	"ok": true,
-	"error": null,
-	"message": null,
-	"data": {
-		"id": "98372b22-4b2e-4b18-b907-37f4b2fa24f2",
-		"created_at": "2022-10-07T23:55:13.564Z",
-		"color1": "#FFFFFF",
-		"color2": "#38E54D",
-		"color3": "#9CFF2E",
-		"color4": "#FDFF00"
-	}
+    "ok": true,
+    "error": null,
+    "message": null,
+    "data": {
+	"id": "98372b22-4b2e-4b18-b907-37f4b2fa24f2",
+	"created_at": "2022-10-07T23:55:13.564Z",
+	"color1": "#FFFFFF",
+	"color2": "#38E54D",
+	"color3": "#9CFF2E",
+	"color4": "#FDFF00"
+    }
 }
 ```
 
