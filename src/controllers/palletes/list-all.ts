@@ -5,7 +5,7 @@ import { incrementCounterAndRegisterMetric, successfullRequestData } from '../..
 class ListAllPalletesController {
   static async handle(req: Request, res: Response, next: NextFunction) {
     try {
-      const page = Number(req.query) || 1;
+      const page = Number(req.query.page) || 1;
 
       const palletes = await ListAllPalletes.execute(page);
 
