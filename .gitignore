@@ -12,3 +12,5 @@ coverage
 dist
 
 newrelic_agent.log
+
+Dockerfile.production

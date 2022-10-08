@@ -23,6 +23,7 @@ class App {
     this.initializeMiddlewares();
     this.initRoutes();
     this.initializeConfigs();
+    this.initializeErrorHandling();
   }
 
   public listen() {
@@ -50,7 +51,6 @@ class App {
     app.use(cors({ origin: process.env.CORS_ORIGIN }));
     app.use(express.urlencoded({ extended: true }));
     app.use(apiLimiter);
-    app.use(errorMiddleware);
     app.use(Sentry.Handlers.requestHandler());
     app.use(Sentry.Handlers.tracingHandler());
 
@@ -65,6 +65,10 @@ class App {
     prometheus.client.collectDefaultMetrics({ register: prometheus.register });
 
     logger.info('Config initialized');
+  }
+
+  private initializeErrorHandling() {
+    this.app.use(errorMiddleware);
   }
 }
 

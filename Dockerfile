@@ -1,26 +1,28 @@
-# Common build stage
-FROM node:16.13.0 as common-build-stage
+
+FROM node:16
 
 COPY . ./app
 
 WORKDIR /app
 
+COPY package*.json ./
+
 RUN yarn install
+
+ENV NODE_ENV=production
+ENV DATABASE_URl=$DATABASE_URL
+ENV DB_USER=$DB_USER
+ENV DB_PASS=$DB_PASS
+ENV SENTRY_DSN_TOKEN=$SENTRY_DSN_TOKEN
+ENV SENTRY_TRACE_RATE=$SENTRY_TRACE_RATE
+ENV CORS_ORIGIN=$CORS_ORIGIN
+ENV NEW_RELIC_APP_NAME=$NEW_RELIC_APP_NAME
+ENV NEW_RELIC_LICENSE_KEY=$NEW_RELIC_LICENSE_KEY
 
 RUN yarn build
 
+COPY . .
+
 EXPOSE 3200
 
-# Development build stage
-FROM common-build-stage as development-build-stage
-
-ENV NODE_ENV development
-
-CMD ["run", "yarn", "dev"]
-
-# Production build stage
-FROM common-build-stage as production-build-stage
-
-ENV NODE_ENV production
-
-CMD ["run", "yarn", "start"]
+CMD [ "yarn", "start" ]

@@ -4,7 +4,7 @@ import * as Tracing from '@sentry/tracing';
 
 export const initializeSentry = (app: Router) => {
   Sentry.init({
-    dsn: process.env.SENTRY_DSN_TKOEN || '',
+    dsn: process.env.SENTRY_DSN_TOKEN || '',
     integrations: [new Sentry.Integrations.Http({ tracing: true }), new Tracing.Integrations.Express({ app })],
     tracesSampleRate: Number(process.env.SENTRY_TRACE_RATE) || 1.0,
   });
