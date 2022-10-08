@@ -1,13 +1,14 @@
 node_modules
 # Keep environment variables out of version control
 .env
+.env.local
+.env.production
 
 src/logs
 
 .vscode
 
 coverage
-
 
 dist
 

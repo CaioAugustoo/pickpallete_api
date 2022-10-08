@@ -23,7 +23,6 @@ class App {
     this.initializeMiddlewares();
     this.initRoutes();
     this.initializeConfigs();
-    this.initializeErrorHandling();
   }
 
   public listen() {
@@ -53,6 +52,7 @@ class App {
     app.use(apiLimiter);
     app.use(Sentry.Handlers.requestHandler());
     app.use(Sentry.Handlers.tracingHandler());
+    app.use(errorMiddleware);
 
     process.env.NODE_ENV === 'production' && app.use(apiKeyMiddleware);
 
@@ -65,10 +65,6 @@ class App {
     prometheus.client.collectDefaultMetrics({ register: prometheus.register });
 
     logger.info('Config initialized');
-  }
-
-  private initializeErrorHandling() {
-    this.app.use(errorMiddleware);
   }
 }
 
