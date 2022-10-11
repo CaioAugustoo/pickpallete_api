@@ -1,5 +1,3 @@
-// thanks to https://github.com/Shehanka/ITP-GitHub-intro
-
 name: Docker Image CI
 
 on:
