@@ -1,7 +1,10 @@
 {
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": "./tsconfig.json",
+    "sourceType": "module",
+    "ecmaVersion": 2015
   },
+  "parser": "@babel/eslint-parser",
   "rules": {
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
@@ -11,17 +14,8 @@
     "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/no-namespace": "off",
     "semi": "off",
-    "@typescript-eslint/semi": ["error"],
     "import/export": "off",
     "quotes": "off",
-    "avoidEscape": true,
-    "allowTemplateLiterals": true,
-    "@typescript-eslint/quotes": [
-      "error",
-      "double",
-      {
-        "allowTemplateLiterals": true
-      }
-    ]
+    "avoidEscape": 0
   }
 }
