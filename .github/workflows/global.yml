@@ -1,13 +1,13 @@
 name: Run CI
 
 on: [push, pull_request]
-   
+
 jobs:
   eslint:
     runs-on: ubuntu-latest
 
     steps:
-       uses: actions/checkout@v1
+      - uses: actions/checkout@v1
 
       - uses: actions/cache@v2
         with:
