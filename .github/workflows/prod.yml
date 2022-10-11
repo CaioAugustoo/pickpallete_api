@@ -1,13 +1,13 @@
-name: Docker Image CI Staging
+name: Run Prod
 
 on:
   push:
-    branches: [staging]
+    branches: [master]
   pull_request:
-    branches: [staging]
+    branches: [master]
 
 jobs:
-  build:
+  build-docker:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +19,7 @@ jobs:
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       - name: Build the Docker image
-        run: docker build . -t caioaugusto/pickpallete-api:staging
+        run: docker build . -t caioaugusto/pickpallete-api
 
       - name: Docker Push
-        run: docker push caioaugusto/pickpallete-api:staging
+        run: docker push caioaugusto/pickpallete-api
