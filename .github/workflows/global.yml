@@ -3,7 +3,9 @@ name: Run CI
 on: [push, pull_request]
    
 jobs:
-  lint:
+  eslint:
+    runs-on: ubuntu-latest
+
     steps:
        uses: actions/checkout@v1
 
@@ -19,6 +21,8 @@ jobs:
         run: yarn lint
 
   typecheck:
+    runs-on: ubuntu-latest
+
     steps:
       - name: Run Typecheck
         run: yarn typecheck
