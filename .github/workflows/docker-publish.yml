@@ -19,7 +19,7 @@ jobs:
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       - name: Build the Docker image
-        run: docker build . --file Dockerfile
+        run: docker build . -t caioaugusto/pickpallete-api
 
       - name: Docker Push
-        run: docker push ${{secrets.DOCKERHUB_IMAGE_NAME}}
+        run: docker push caioaugusto/pickpallete-api
