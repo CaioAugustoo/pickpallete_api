@@ -3,12 +3,11 @@ name: Run CI
 on: [push, pull_request]
 
 jobs:
-  eslint:
+  install-dependecies:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v1
-
       - uses: actions/cache@v2
         with:
           path: '**/node_modules'
@@ -17,6 +16,10 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+  eslint:
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Run Eslint
         run: yarn lint
 
