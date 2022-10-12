@@ -250,6 +250,7 @@ Inicie o servidor
 ```
 
 Ao subir os containers, serão utilizadas quatro portas:
+- 3200: API, a aplicação
 - 9090: Prometheus
 - 3306: Banco de dados MySQL
 - 3000: Grafana
