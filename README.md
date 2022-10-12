@@ -260,7 +260,6 @@ Ao subir os containers, serão utilizadas quatro portas:
 
 - Adicionar testes automatizados, unitários, etc.
 - Traduzir erros
-- Integração e deploy contínuo
 - Uso de cache
 
 -----
