@@ -31,7 +31,7 @@ const createPalleteCounter = new prometheus.client.Counter({
 });
 
 const failsCreatePalleteCounter = new prometheus.client.Counter({
-  name: 'fails_create_pallete_id_counter',
+  name: 'fails_create_pallete_counter',
   help: 'Counts fails create pallete requests.',
   labelNames: ['fails_create_counter'],
 });
